@@ -201,7 +201,7 @@ int main(){
     printList(head);
     cout<<endl;
 
-    insertFront(&head, -2);
+    insertHead(head, -2);
     printList(head);
     cout<<endl;
 
