@@ -18,6 +18,30 @@ Node* createNewNode(int val){
     return newNode;
 }
 
+void printDFSPreorder(Node*&root){
+    if(root == nullptr) return;
+
+    cout<<root->value;
+    printDFSPreorder(root->left);
+    printDFSPreorder(root->right);
+}
+
+void printDFSInorder(Node*&root){
+    if(root == nullptr) return;
+
+    printDFSInorder(root->left);
+    cout<<root->value;
+    printDFSInorder(root->right);
+}
+
+void printDFSPostorder(Node*&root){
+    if(root == nullptr) return;
+
+    printDFSPostorder(root->left);
+    printDFSPostorder(root->right);
+    cout<<root->value;
+}
+
 int main(){
     //level 1
     Node* root = createNewNode(1);
@@ -32,6 +56,16 @@ int main(){
 
     root->right->left = createNewNode(6);
     root->right->right = createNewNode(7);
+
+    //level 4
+    root->right->left->left = createNewNode(9);
+    root->right->left->right = createNewNode(11);
+
+    printDFSPreorder(root);
+    cout<<endl;
+    printDFSInorder(root);
+    cout<<endl;
+    printDFSPostorder(root);
 
 
     return 0;
