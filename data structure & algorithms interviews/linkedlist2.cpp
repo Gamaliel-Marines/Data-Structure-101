@@ -106,6 +106,25 @@ Node* deleteRepetitions(Node*&head){
     return head;
 }
 
+Node* reverseList(Node*&head){
+    Node* prev = new Node();
+    Node* current = new Node();
+    Node* next = new Node();
+
+    current = head;
+    prev = nullptr;
+
+    while(current != nullptr){
+        next = current->Next;
+        current->Next = prev;
+        prev = current;
+        current = next;
+    }
+
+    head = prev;
+    return head;
+}
+
 int main(){
 
     Node* head = new Node();
