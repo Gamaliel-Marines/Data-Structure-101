@@ -30,6 +30,20 @@ vector<int> insertionSort(vector<int>& nums){
     return nums;
 }
 
+vector<int> selectionSort(vector<int>& nums){
+    int n = nums.size();
+    for(int i = 0; i < n; i++){
+        int minIndex = i;
+        for(int j = i+1; j < n; j++){
+            if(nums[j] < nums[minIndex]){
+                minIndex = j;
+            }
+        }
+        swap(nums[i], nums[minIndex]);
+    }
+    return nums;
+}
+
 int main() {
     vector<int> v = {1, 6, 3, 2, 8};
     cout<<"Start the function"<<endl;
@@ -44,7 +58,6 @@ int main() {
     vector<int> sorted2 = insertionSort(v2);
     for(auto i : sorted2){
         cout << i << "\t";
-
     }
 
     cout << endl;
