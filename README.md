@@ -201,7 +201,20 @@ In contrast of a stack a queue uses fifo instead of filo.
 
 ---
 
-# MAPS
+# HASH TABLES - MAPS - DICTIONARY
+
+- **Hash Table:**
+    - A hash table is a data structure that implements an associative array abstract data type, where data is stored in key-value pairs.
+    - It uses a hash function to compute an index into an array of buckets or slots, from which the desired value can be found.
+    - It provides efficient data retrieval based on the key.
+    - Hash tables have constant time average-case complexity for basic operations like insert, delete, and search, making them widely used for implementing maps or sets.
+- **Map (or Dictionary):**
+    - A map or dictionary is a high-level abstract data type that stores data in key-value pairs, allowing efficient retrieval and modification of data.
+    - It provides a way to associate values with unique keys.
+    - Maps or dictionaries can be implemented using various data structures, and one common implementation is through hash tables.
+    - In some programming languages, the terms "map" or "dictionary" are used as the standard names for this key-value data structure.
+
+When you hear "hash table" or "map," it generally refers to a key-value data structure with efficient lookup and modification operations.
 
 In C++, `map` and `unordered_map` are both associative containers that store key-value pairs, allowing for efficient retrieval of values based on their corresponding keys. However, there are key differences between the two:
 
@@ -222,3 +235,150 @@ In C++, `map` and `unordered_map` are both associative containers that store key
     - **`unordered_map`:** Generally has lower memory overhead.
 
 When choosing between `map` and `unordered_map`, consider the specific requirements of your application. If you need ordered traversal of elements and don't mind a slightly higher time complexity for some operations, a `map` might be appropriate. If you prioritize fast average-case access times and do not require any specific order, an `unordered_map` may be more suitable.
+
+
+# Binary Trees
+
+> A binary tree is a hierarchical data structure composed of nodes, where each node has at most two children, referred to as the left child and the right child. The topmost node in a binary tree is called the root, and nodes with no children are called leaves. The nodes in a binary tree can be represented as a structure that contains a data element and two pointers (references) to its left and right children.
+> 
+1. **Binary Tree Properties:**
+    - Each node in a binary tree has at most two children.
+    - A binary tree can be empty (no nodes).
+    - For every node, the left subtree contains only nodes with values less than the node's value, and the right subtree contains only nodes with values greater than the node's value.
+    - The left and right subtrees of a node are also binary trees.
+2. **Binary Tree Traversals:**
+    - Inorder Traversal: Left, Root, Right
+    - Preorder Traversal: Root, Left, Right
+    - Postorder Traversal: Left, Right, Root
+3. **Types of Binary Trees:**
+    - Full Binary Tree: Every node has 0 or 2 children.
+    - Complete Binary Tree: All levels are completely filled except possibly the last level, which is filled from left to right.
+    - Perfect Binary Tree: All levels are completely filled.
+    - Balanced Binary Tree: The height of the left and right subtrees of any node differ by at most one.
+4. **Time Complexity:**
+    - The time complexity of basic operations on a binary tree depends on the height of the tree.
+    - In the worst case, if the tree is unbalanced (skewed), its height is n (number of nodes), resulting in O(n) time complexity for operations.
+    - In a balanced binary tree, the height is logarithmic, and the time complexity for basic operations (search, insert, delete) is O(log n).
+    - However, it's essential to note that in the worst case (unbalanced trees), the time complexity can degrade to O(n), making the tree inefficient.
+5. **Common Operations:**
+    - **Search:** O(log n) on average for a balanced binary tree, O(n) in the worst case for an unbalanced tree.
+    - **Insertion:** O(log n) on average for a balanced binary tree, O(n) in the worst case for an unbalanced tree.
+    - **Deletion:** O(log n) on average for a balanced binary tree, O(n) in the worst case for an unbalanced tree.
+
+---
+
+# BFS AND DFS
+
+### Breadth-First Search (BFS):
+
+1. **Definition:**
+    - Breadth-First Search is an algorithm used for traversing or searching tree or graph data structures.
+    - It starts at the tree root (or some arbitrary node of a graph), explores the neighbor nodes at the present depth before moving on to nodes at the next depth level.
+2. **Process:**
+    - Begin with a starting node and enqueue it.
+    - Dequeue a node and visit it.
+    - Enqueue all its adjacent (unvisited) nodes.
+    - Repeat until all nodes are visited or a specific condition is met.
+3. **Key Characteristics:**
+    - Uses a queue data structure to keep track of nodes to be visited.
+    - Ensures that all nodes at a particular depth are visited before moving on to the next level.
+4. **Applications:**
+    - Shortest path algorithms.
+    - Connected components in a graph.
+    - Web crawling and social networking algorithms.
+5. **Time Complexity:**
+    - O(V + E), where V is the number of vertices (nodes) and E is the number of edges in the graph.
+
+### Depth-First Search (DFS):
+
+1. **Definition:**
+    - Depth-First Search is an algorithm for traversing or searching tree or graph data structures.
+    - It starts at the tree root (or some arbitrary node of a graph), explores as far as possible along each branch before backtracking.
+2. **Process:**
+    - Start with a starting node and visit it.
+    - Explore as far as possible along one branch before backtracking.
+    - Repeat the process until all nodes are visited or a specific condition is met.
+3. **Key Characteristics:**
+    - Uses a stack data structure (or recursion) to keep track of nodes to be visited.
+    - Doesn't necessarily visit all nodes at a particular depth before moving on.
+4. **Applications:**
+    - Topological sorting of graphs.
+    - Solving mazes.
+    - Detecting cycles in a graph.
+5. **Time Complexity:**
+    - O(V + E), where V is the number of vertices (nodes) and E is the number of edges in the graph.
+
+### Comparison:
+
+- **Memory Usage:**
+    - BFS usually requires more memory as it keeps track of all nodes at the current level.
+    - DFS may use less memory, especially if implemented using recursion.
+- **Completeness:**
+    - BFS is complete for finite graphs.
+    - DFS may not be complete in infinite graphs or graphs with cycles.
+- **Optimality:**
+    - BFS guarantees the shortest path in an unweighted graph.
+    - DFS doesn't guarantee the shortest path.
+
+Both BFS and DFS have their strengths and weaknesses, and the choice between them depends on the specific problem requirements and constraints.
+
+DFS
+
+It has three algorithms:
+
+- preorder (data, left, right)
+- inorder (left, data, right)
+- postorder (left, right, data)
+
+---
+
+# ALGORITHMS
+
+## SORTING C++
+
+What is sorting?
+
+- Concept in which the data is arranged in a logical order.
+- It helps dealing with many complex problems and allows reaching the maximum or minimum element.
+
+Categorizing sorting
+
+- Internal sorting
+    - The data is present in the main memory and the sorting process also takes place in the main memory.
+- External sorting
+    - The complete data is not always present in the main memory because of its huge size. It is filled in main memory in small portions.
+
+Types of sorting
+
+- Bubble sort
+- Selection sort
+- Quick sort
+- Insertion sort
+
+Bubble sorting
+
+- Easiest techniques
+- Swapping starting from the first two elements
+- If the element on the left is greater than the element on the right then the swapping is done and it proceeds till the end of the array.
+- These comparisions will repeat again for 2 times till the array becomes sorted.
+- For n elements, the number of comparisons are (n-1).
+
+Selection sorting
+
+- The smallest element is fetched by comparing itself with the rest of the elements and is sorted at the first position of the array.
+- After the first element is positioned, the search for the second elements begins from the rest of the array and is positioned at the second place.
+
+Insertion sort
+
+- Start comparing the second element with the first element.
+- If the second element is smaller than the fist they are swapped.
+- After that we will compare the third element with all the elements that are before it. So on so forth.
+
+Quick sort
+
+- The most efficient sorting algorithm
+- Divide and conquer approach
+- A pivot element is chosen.
+- The elements smaller that the pivot are moved to the left and vice versa for the bigger ones.
+
+
