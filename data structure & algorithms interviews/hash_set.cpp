@@ -17,9 +17,9 @@ int findUnpaired(vector<int>& nums) {
     return *s.begin();
 }
 
-string findUnpaired(vector<string>& nums) {
+string findUnpaired(vector<string>& chars) {
     unordered_set<string> s;
-    for (string i : nums) {
+    for (string i : chars) {
         if (s.find(i) != s.end()) {
             s.erase(i);
         } else {
